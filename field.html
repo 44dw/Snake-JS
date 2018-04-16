@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <script src='generate.js'></script>
   <script src='move.js'></script>
+  <script src='moveBody.js'></script>
 </head>
 <body>
 	<div id='field'>
@@ -22,13 +23,31 @@
 	let field = document.getElementById('field');
 	let snake = document.getElementById('snake');
 	
-	let direction = 'top';
+	let direction = 'right';
 	let prevDirection;
 	
 	generate(); //generate snake body under snake head;
 	
-	setInterval(move, 500);
+	setInterval(move, 500); //move snake
 	
+	document.onkeydown = function(e) {
+		prevDirection = direction;
+		switch (e.keyCode) {
+			case 39: 
+				direction = 'right';
+				break;
+			case 37: 
+				direction = 'left';
+				break;
+			case 38: 
+				direction = 'top';
+				break;
+			case 40: 
+				direction = 'bottom';
+				break;
+		}
+		return false
+	}
 </script>	
 </body>
 

@@ -1,3 +1,4 @@
+
 //generate snake body under snake head
 
 	function generate() {
@@ -14,23 +15,26 @@
 					tails[i].style.top = snakeRects.top - fieldRects.top + (7 * count) + 'px';
 					count++;
 				}
+				break;
 			case 'bottom': 
 				for (let i=0; i<tails.length; i++) {
 					tails[i].style.left = snakeRects.left - fieldRects.left + 'px';
 					tails[i].style.top = snakeRects.top - fieldRects.top - (7 * count) + 'px';
 					count++;
 				}
+				break;
 			case 'left': 
 				for (let i=0; i<tails.length; i++) {
 					tails[i].style.left = snakeRects.left - fieldRects.left + 'px';
 					tails[i].style.top = snakeRects.top - fieldRects.top + (7 * count) + 'px';
 					count++;
 				}
+				break;
 			case 'right': 
 				for (let i=0; i<tails.length; i++) {
 					tails[i].style.left = snakeRects.left - fieldRects.left + 'px';
 					tails[i].style.top = snakeRects.top - fieldRects.top + (7 * count) + 'px';
 					count++;
 				}
+				break;
 		}
-	}
