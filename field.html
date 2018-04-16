@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>snake</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  <script src='generate.js'></script>
+  <script src='move.js'></script>
+</head>
+<body>
+	<div id='field'>
+		<div id='snake'></div>
+		<div class='tail'></div>
+		<div class='tail'></div>
+		<div class='tail'></div>
+		<div class='tail'></div>
+		<div class='tail'></div>
+	</div>
+	
+<script>
+	let field = document.getElementById('field');
+	let snake = document.getElementById('snake');
+	
+	let direction = 'top';
+	let prevDirection;
+	
+	generate(); //generate snake body under snake head;
+	
+	setInterval(move, 500);
+	
+</script>	
+</body>
+
+</html>
