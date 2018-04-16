@@ -1,0 +1,31 @@
+#field {
+	height: 800px;
+	width: 800px;
+	outline: 3px solid black;
+	background:
+		linear-gradient(#DCDCDC 0px, #DCDCDC 1px, transparent 1px),
+		linear-gradient(90deg, #DCDCDC 0px, #DCDCDC 1px, transparent 1px);
+	background-size: 10px 10px;
+	background-position: left top;
+	background-repeat: repeat;
+	opacity: 1;
+	position: relative;
+}
+
+#snake {
+	width: 7px;
+	height: 7px;
+	background: black;
+	position: absolute;
+		top:97px;
+		left: 7px;
+	z-index: 999;
+}
+
+.tail {
+	width: 7px;
+	height: 7px;
+	background: black;
+	z-index: 999;
+	position: absolute;
+}
