@@ -8,6 +8,9 @@
   <script src='generate.js'></script>
   <script src='move.js'></script>
   <script src='moveBody.js'></script>
+  <script src='point.js'></script>
+  <script src='minusTail.js'></script>
+  <script src='plusTail.js'></script>
 </head>
 <body>
 	<div id='field'>
@@ -22,16 +25,33 @@
 <script>
 	let field = document.getElementById('field');
 	let snake = document.getElementById('snake');
+	let fieldRect = field.getBoundingClientRect();
 	
-	let direction = 'right';
+	let direction = 'top';
 	let prevDirection;
+	let turnPoint = [];
 	
 	generate(); //generate snake body under snake head;
 	
-	setInterval(move, 500); //move snake
+	let goHead = setInterval(move, 500); //move snake
+	let goBody = setInterval(moveBody, 500); //move snake
+	
+	function stop() {
+		clearInterval(goHead);
+		clearInterval(goBody);
+	}
 	
 	document.onkeydown = function(e) {
+		clearInterval(goBody);
+		let talesNum = document.getElementsByClassName('tail').length; //запомнить количество хвостов
+		setInterval(minusTail, 500);
+		setInterval(plusTail, 500);
 		prevDirection = direction;
+		let snakeRect = snake.getBoundingClientRect();
+		let obj = {};
+		obj[snakeRect.left] = snakeRect.top;
+		turnPoint.push(obj);
+		point(obj);
 		switch (e.keyCode) {
 			case 39: 
 				direction = 'right';

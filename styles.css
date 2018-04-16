@@ -19,12 +19,29 @@
 	position: absolute;
 		top:97px;
 		left: 7px;
-	z-index: 999;
+	z-index: 99;
 }
 
 .tail {
 	width: 7px;
 	height: 7px;
 	background: black;
-	z-index: 999;
+	z-index: 99;
 	position: absolute;
+}
+
+.tail2 {
+	width: 7px;
+	height: 7px;
+	background: black;
+	z-index: 99;
+	position: absolute;
+}
+
+.point {
+	width: 7px;
+	height: 7px;
+	z-index: 999;
+	background: red;
+	position: absolute;
+}
