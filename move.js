@@ -18,4 +18,3 @@
 				break;
 		}
 		moveBody();
-	}

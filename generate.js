@@ -1,3 +1,4 @@
+
 //generate snake body under snake head
 
 	function generate() {
@@ -37,4 +38,3 @@
 				}
 				break;
 		}
-	}
