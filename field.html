@@ -37,19 +37,14 @@
 		<div class='tail'></div>
 		<div class='tail'></div>
 		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
+
 	</div>
-	
+	<button onclick = stop()>Stop</button>
+	<button onclick = reMove()>Run</button>
 <script>
+
+	//ломается на 13 итерации
+	
 	let field = document.getElementById('field');
 	let snake = document.getElementById('snake');
 	let fieldRect = field.getBoundingClientRect();
@@ -65,12 +60,17 @@
 	let goBody = setInterval(moveBody, 500); //move snakeTail
 	
 	document.onkeydown = function(event) {
-		clearInterval(goBody);
+		stop(); //clear all intervals (prevents duplication)
+		
 		let countTales = 0;
+		
 		let tailDecrease = setInterval(minusTail, 500); //decrease tail length before turn
 		let tailGrow = setInterval(plusTail, 500); //increase tail length after turn
-		
+				
 		turn(event); //change direction and create turn point
+		
+		setTimeout(move, 0); //prevents delay
+		goHead = setInterval(move, 500);
 		
 		document.addEventListener('stoper', function(e) { //stop when all body is turn
 			countTales += e.detail;
