@@ -10,13 +10,13 @@ function moveBody() {
 				tails[i].style.top = tailRects.top - 15 + 'px';
 				break;
 			case 'bottom':
-				tails[i].style.top = tailRects.top + 15 + 'px';
+				tails[i].style.top = tailRects.top - 1 + 'px';
 				break;
 			case 'left': 
 				tails[i].style.left = tailRects.left - 15 + 'px';
 				break;
 			case 'right':
-				tails[i].style.left = tailRects.left + 15 + 'px';
+				tails[i].style.left = tailRects.left - 1 + 'px';
 				break;
 		}
 		
