@@ -8,6 +8,14 @@
   <script src='generate.js'></script>
   <script src='move.js'></script>
   <script src='moveBody.js'></script>
+  <script src='point.js'></script>
+  <script src='minusTail.js'></script>
+  <script src='plusTail.js'></script>
+  <script src='turn.js'></script>
+  <script src='stop.js'></script>
+  <script src='toggleClass.js'></script>
+  <script src='removePoint.js'></script>
+  <script src='reMove.js'></script>
 </head>
 <body>
 	<div id='field'>
@@ -17,35 +25,61 @@
 		<div class='tail'></div>
 		<div class='tail'></div>
 		<div class='tail'></div>
+		<div class='tail'></div>
+		<div class='tail'></div>
+
+
 	</div>
-	
+	<button onclick = stop()>Stop</button>
+	<button onclick = reMove()>Run</button>
 <script>
+	
 	let field = document.getElementById('field');
 	let snake = document.getElementById('snake');
+	let fieldRect = field.getBoundingClientRect();
+	let tailLength = document.getElementsByClassName('tail').length;
 	
-	let direction = 'right';
-	let prevDirection;
+	let direction = 'top';
+	let turnPoint = []; //protocol turn points
+	let firstTurn = false;
+	let intervals = {}; ////protocol intervals
 	
 	generate(); //generate snake body under snake head;
 	
-	setInterval(move, 500); //move snake
+	let goHead = setInterval(move, 500); //move snakeHead
+	intervals.head = goHead;
+	let goBody = setInterval(moveBody, 500); //move snakeTail
+	intervals.body = goBody;
 	
-	document.onkeydown = function(e) {
-		prevDirection = direction;
-		switch (e.keyCode) {
-			case 39: 
-				direction = 'right';
-				break;
-			case 37: 
-				direction = 'left';
-				break;
-			case 38: 
-				direction = 'top';
-				break;
-			case 40: 
-				direction = 'bottom';
-				break;
-		}
+	document.onkeydown = function(event) {
+		stop(); //clear all intervals (prevents duplication)
+		
+		let countTales = 0;
+		
+		let tailDecrease = setInterval(minusTail, 500); //decrease tail length before turn
+		intervals.minus = tailDecrease;
+		let tailGrow = setInterval(plusTail, 500); //increase tail length after turn
+		intervals.plus = tailGrow;
+				
+		turn(event); //change direction and create turn point
+		
+		setTimeout(move, 0); //prevents delay
+		goHead = setInterval(move, 500);
+		intervals.head = goHead;
+		
+		document.addEventListener('stoper', function(e) { //stop when all body is turn
+			countTales += e.detail;
+			if (countTales == tailLength) {
+				
+				clearInterval(tailDecrease);
+				clearInterval(tailGrow);
+				if (firstTurn == false) firstTurn = true;
+				toggleClass(); //change class 'tempTail' > 'tail'
+				
+				removePoint(); //remove current point; repeated move in this too
+			}
+		});
+		
 		return false
 	}
 </script>	
