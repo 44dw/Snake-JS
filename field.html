@@ -16,6 +16,12 @@
   <script src='toggleClass.js'></script>
   <script src='removePoint.js'></script>
   <script src='reMove.js'></script>
+  <script src='getRandom.js'></script>
+  <script src='newApple.js'></script>
+  <script src='generateApple.js'></script>
+  <script src='shiftAppleCoords.js'></script>
+  <script src='eatApple.js'></script>
+  <script src='test.js'></script>
 </head>
 <body>
 	<div id='field'>
@@ -24,11 +30,6 @@
 		<div class='tail'></div>
 		<div class='tail'></div>
 		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-
-
 	</div>
 	<button onclick = stop()>Stop</button>
 	<button onclick = reMove()>Run</button>
@@ -42,7 +43,8 @@
 	let direction = 'top';
 	let turnPoint = []; //protocol turn points
 	let firstTurn = false;
-	let intervals = {}; ////protocol intervals
+	let intervals = {}; //protocol intervals
+	let appleCoords = [];
 	
 	generate(); //generate snake body under snake head;
 	

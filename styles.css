@@ -39,3 +39,11 @@
 	background: black;
 	position: absolute;
 }
+
+.apple {
+	width: 9px;
+	height: 9px;
+	z-index: 999;
+	background: red;
+	position: absolute;
+}
