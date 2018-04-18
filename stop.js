@@ -1,5 +1,6 @@
 	function stop() {
-		for (let i=0; i<50; i++) {
-			clearInterval(i);
-		}
+		clearInterval(intervals.head);
+		clearInterval(intervals.body);
+		clearInterval(intervals.minus);
+		clearInterval(intervals.plus);
 	}

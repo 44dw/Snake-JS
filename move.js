@@ -1,6 +1,7 @@
-//move snake head on 15px
+//move snake head on 9px
 
 	function move() {
+		
 		let snakeRects = snake.getBoundingClientRect();
 		
 		switch (direction) {
