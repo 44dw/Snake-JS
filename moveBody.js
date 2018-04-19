@@ -5,7 +5,10 @@ function moveBody() {
 	for (let i=0; i<tails.length; i++) {
 		let tailRects = tails[i].getBoundingClientRect();
 		
-		if (compareCoords(tails[i])) tails[i].dataset.direction = compareCoords(tails[i]);
+		if (compareCoords(tails[i])) {
+			tails[i].dataset.direction = compareCoords(tails[i]);
+			if (tails[i].classList.contains('last')) turnPoint.splice(0, 1);
+			}
 		
 		switch(tails[i].dataset.direction) {
 			case 'top': 

@@ -10,19 +10,14 @@
   <script src='moveBody.js'></script>
   <script src='createPoint.js'></script>
   <script src='compareCoords.js'></script>
-  <script src='minusTail.js'></script>
-  <script src='plusTail.js'></script>
   <script src='newDirection.js'></script>
   <script src='stop.js'></script>
-  <script src='toggleClass.js'></script>
-  <script src='removePoint.js'></script>
-  <script src='reMove.js'></script>
   <script src='getRandom.js'></script>
   <script src='newApple.js'></script>
   <script src='generateApple.js'></script>
   <script src='shiftAppleCoords.js'></script>
   <script src='eatApple.js'></script>
-  <script src='insertAfter.js'></script>
+  <script src='growTail.js'></script>
   <script src='test.js'></script>
 </head>
 <body>
@@ -30,8 +25,7 @@
 		<div id='snakeHead' data-direction='top'></div>
 		<div class='tail' data-direction='top'></div>
 		<div class='tail' data-direction='top'></div>
-		<div class='tail' data-direction='top'></div>
-		<div class='tail' data-direction='top'></div>
+		<div class='tail last' data-direction='top'></div>
 	</div>
 	<button onclick = stop()>Stop</button>
 	<button onclick = reMove()>Run</button>
@@ -47,54 +41,17 @@
 	
 	generate(); //generate snake body under snake head;
 	
-	let goHead = setInterval(moveHead, 500); //move snakeHead
+	let goHead = setInterval(moveHead, 100); //move snakeHead
 	intervals.head = goHead;
-	let goBody = setInterval(moveBody, 500); //move snakeTail
+	let goBody = setInterval(moveBody, 100); //move snakeTail
 	intervals.body = goBody;
+	
+	newApple();
 	
 	document.onkeydown = function(event) {
 		let dir = newDirection(event);
 		createPoint(dir);
 	}
-	
-	/*
-	
-		//stop(); //clear all intervals (prevents duplication)
-		
-		turnPoint.push
-		
-		let countTales = 0;
-		
-		let tailDecrease = setInterval(minusTail, 500); //decrease tail length before turn
-		intervals.minus = tailDecrease;
-		let tailGrow = setInterval(plusTail, 500); //increase tail length after turn
-		intervals.plus = tailGrow;
-				
-		turn(event); //change direction and create turn point
-		
-		setTimeout(move, 0); //prevents delay
-		goHead = setInterval(move, 500);
-		intervals.head = goHead;
-		
-		document.addEventListener('stoper', function(e) { //stop when all body is turn
-			countTales += e.detail;
-			if (countTales == tailLength) {
-				
-				clearInterval(tailDecrease);
-				clearInterval(tailGrow);
-				if (firstTurn == false) firstTurn = true;
-				
-				 //to avoid overlap tail with snakeHead
-				
-				toggleClass(); //change class 'tempTail' > 'tail'
-				
-				removePoint(); //remove current point; repeated move in this too
-			}
-		});
-		
-		return false
-	}
-	*/
 </script>	
 </body>
 

@@ -9,5 +9,4 @@ function createPoint(dir) {
 	obj.direction = dir;
 	
 	turnPoint.push(obj);
-	console.log(turnPoint);
 }

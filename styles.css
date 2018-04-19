@@ -1,7 +1,8 @@
 #field {
 	height: 504px;
 	width: 504px;
-	outline: 3px solid black;
+	border: 3px solid black;
+	box-sizing: border-box;
 	background:
 		linear-gradient(#DCDCDC 0px, #DCDCDC 1px, transparent 1px),
 		linear-gradient(90deg, #DCDCDC 0px, #DCDCDC 1px, transparent 1px);
@@ -23,7 +24,7 @@
 	z-index: 99;
 }
 
-.tail, .temporaryTail {
+.tail {
 	width: 9px;
 	height: 9px;
 	background: black;
@@ -31,14 +32,6 @@
 	position: absolute;
 }
 
-
-.point {
-	width: 9px;
-	height: 9px;
-	z-index: 999;
-	background: black;
-	position: absolute;
-}
 
 .apple {
 	width: 9px;
