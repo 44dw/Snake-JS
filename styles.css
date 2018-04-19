@@ -13,7 +13,7 @@
 	float: left;
 }
 
-#snake {
+#snakeHead {
 	width: 9px;
 	height: 9px;
 	background: black;

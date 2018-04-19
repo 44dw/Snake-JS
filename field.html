@@ -6,12 +6,13 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="styles.css">
   <script src='generate.js'></script>
-  <script src='move.js'></script>
+  <script src='moveHead.js'></script>
   <script src='moveBody.js'></script>
-  <script src='point.js'></script>
+  <script src='createPoint.js'></script>
+  <script src='compareCoords.js'></script>
   <script src='minusTail.js'></script>
   <script src='plusTail.js'></script>
-  <script src='turn.js'></script>
+  <script src='newDirection.js'></script>
   <script src='stop.js'></script>
   <script src='toggleClass.js'></script>
   <script src='removePoint.js'></script>
@@ -21,40 +22,46 @@
   <script src='generateApple.js'></script>
   <script src='shiftAppleCoords.js'></script>
   <script src='eatApple.js'></script>
+  <script src='insertAfter.js'></script>
   <script src='test.js'></script>
 </head>
 <body>
 	<div id='field'>
-		<div id='snake'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
-		<div class='tail'></div>
+		<div id='snakeHead' data-direction='top'></div>
+		<div class='tail' data-direction='top'></div>
+		<div class='tail' data-direction='top'></div>
+		<div class='tail' data-direction='top'></div>
+		<div class='tail' data-direction='top'></div>
 	</div>
 	<button onclick = stop()>Stop</button>
 	<button onclick = reMove()>Run</button>
 <script>
 	
 	let field = document.getElementById('field');
-	let snake = document.getElementById('snake');
+	let snakeHead = document.getElementById('snakeHead');
 	let fieldRect = field.getBoundingClientRect();
-	let tailLength = document.getElementsByClassName('tail').length;
-	
-	let direction = 'top';
+		
 	let turnPoint = []; //protocol turn points
-	let firstTurn = false;
 	let intervals = {}; //protocol intervals
 	let appleCoords = [];
 	
 	generate(); //generate snake body under snake head;
 	
-	let goHead = setInterval(move, 500); //move snakeHead
+	let goHead = setInterval(moveHead, 500); //move snakeHead
 	intervals.head = goHead;
 	let goBody = setInterval(moveBody, 500); //move snakeTail
 	intervals.body = goBody;
 	
 	document.onkeydown = function(event) {
-		stop(); //clear all intervals (prevents duplication)
+		let dir = newDirection(event);
+		createPoint(dir);
+	}
+	
+	/*
+	
+		//stop(); //clear all intervals (prevents duplication)
+		
+		turnPoint.push
 		
 		let countTales = 0;
 		
@@ -76,6 +83,9 @@
 				clearInterval(tailDecrease);
 				clearInterval(tailGrow);
 				if (firstTurn == false) firstTurn = true;
+				
+				 //to avoid overlap tail with snakeHead
+				
 				toggleClass(); //change class 'tempTail' > 'tail'
 				
 				removePoint(); //remove current point; repeated move in this too
@@ -84,6 +94,7 @@
 		
 		return false
 	}
+	*/
 </script>	
 </body>
 

@@ -6,6 +6,8 @@ function plusTail() {
 	newTail.style.left = snakeRect.left - fieldRect.left + 'px';
 	newTail.style.top = snakeRect.top - fieldRect.top + 'px'
 
+	//insertAfter(newTail, snake);
+	
 	field.appendChild(newTail);
 	
 	let stoper = new CustomEvent('stoper', {

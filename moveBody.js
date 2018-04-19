@@ -5,7 +5,9 @@ function moveBody() {
 	for (let i=0; i<tails.length; i++) {
 		let tailRects = tails[i].getBoundingClientRect();
 		
-		switch(direction) {
+		if (compareCoords(tails[i])) tails[i].dataset.direction = compareCoords(tails[i]);
+		
+		switch(tails[i].dataset.direction) {
 			case 'top': 
 				tails[i].style.top = tailRects.top - fieldRect.top - 9 + 'px';
 				break;
