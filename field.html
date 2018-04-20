@@ -27,13 +27,14 @@
 		<div class='tail' data-direction='top'></div>
 		<div class='tail last' data-direction='top'></div>
 	</div>
-	<button onclick = stop()>Stop</button>
-	<button onclick = reMove()>Run</button>
+	<div id='score'>SCORE<span>0</span></div>
 <script>
 	
 	let field = document.getElementById('field');
 	let snakeHead = document.getElementById('snakeHead');
 	let fieldRect = field.getBoundingClientRect();
+	let score = document.querySelector('#score span');
+	//let over = document.getElementById('over');
 		
 	let turnPoint = []; //protocol turn points
 	let intervals = {}; //protocol intervals
