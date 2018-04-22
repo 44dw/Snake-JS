@@ -1,3 +1,12 @@
+@font-face {
+    font-family: Cone; /* Гарнитура шрифта */
+    src: url(cone/Cone.ttf); /* Путь к файлу со шрифтом */
+   }
+
+body {
+	font-family: Cone;
+}   
+   
 #field {
 	height: 504px;
 	width: 504px;
@@ -10,10 +19,9 @@
 	background-repeat: repeat;
 	opacity: 1;
 	position: relative;
-	float: left;
 }
 
-#snake {
+#snakeHead {
 	width: 9px;
 	height: 9px;
 	background: black;
@@ -23,7 +31,7 @@
 	z-index: 99;
 }
 
-.tail, .temporaryTail {
+.tail {
 	width: 9px;
 	height: 9px;
 	background: black;
@@ -32,10 +40,28 @@
 }
 
 
-.point {
+.apple {
 	width: 9px;
 	height: 9px;
 	z-index: 999;
-	background: black;
+	background: red;
 	position: absolute;
+}
+
+#score {
+	margin-top: -10px;
+	padding-top: 0;
+	font-size: 80px;
+}
+#score span {
+	padding-left: 20px;
+}
+
+.over {
+	font-size: 100px;
+	color: white;
+	position: absolute;
+		top: 175px;
+		left: 35px;
+	display: block;
 }
