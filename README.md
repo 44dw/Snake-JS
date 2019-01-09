@@ -1,2 +1,6 @@
-# Snake-JS
-Trying to write snake on native JS
+Snake in native js
+=========
+
+![screenshot](screen1.png)
+
+Классическая змейка. Ничего лишнего.
